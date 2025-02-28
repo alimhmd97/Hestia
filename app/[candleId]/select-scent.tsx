@@ -2,7 +2,6 @@ import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { useTheme } from "@mui/material/styles";
 import * as React from "react";
 
 interface SingleSelectPlaceholderProps {
@@ -27,7 +26,7 @@ const SingleSelectPlaceholder: React.FC<SingleSelectPlaceholderProps> = ({
   selectedScent,
   setSelectedScent,
 }) => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     const {

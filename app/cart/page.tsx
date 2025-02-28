@@ -7,7 +7,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
-
 import {
   Avatar,
   Box,
@@ -65,7 +64,7 @@ const CartPage = () => {
   const [open, setOpen] = useState(false);
 
   const total = cart
-    .reduce((acc, item) => acc + item.price * item.quantity, 0)
+    .reduce((acc, item) => acc + item.price * (item?.quantity || 0), 0)
     .toFixed(2);
 
   // Function to open WhatsApp with a pre-filled message
@@ -145,7 +144,7 @@ const CartPage = () => {
           ) : (
             <>
               <List sx={{ width: "100%" }}>
-                {cart.map((item) => (
+                {cart.map((item: any) => (
                   <Card
                     key={item.id}
                     sx={{

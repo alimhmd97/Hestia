@@ -15,23 +15,33 @@ import {
   Grid,
   Paper,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ColorsMultipleSelectPlaceholder from "./select-color";
 import MultipleSelectPlaceholder from "./select-scent";
+
+export interface Candle {
+  id: string | number;
+  name: string;
+  price: number;
+  img: string;
+  description: string;
+  shortDesc: string;
+  scents: string[];
+}
 
 const SingleCandle = ({ params }: any) => {
   const [selectedScent, setSelectedScent] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const { addToCart } = useCart();
-  const resolvedParams = use(params);
-  const candleId = resolvedParams?.candleId;
-  const currentCandle = candles.find((candle) => candle.id === +candleId);
+  const candleId = params?.candleId;
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const currentCandle: Candle | undefined = candles.find(
+    (candle) => candle.id === Number(candleId)
+  );
+
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   useEffect(() => {
     if (selectedScent) {
       setSelectedColor(recommendedColorForScent[selectedScent]);
@@ -134,7 +144,9 @@ const SingleCandle = ({ params }: any) => {
                 variant="contained"
                 color="primary"
                 size="large"
-                onClick={() => addToCart(currentCandle)}
+                onClick={() => {
+                  if (currentCandle) addToCart(currentCandle);
+                }}
                 sx={{
                   borderRadius: 2,
                   padding: "12px 30px",

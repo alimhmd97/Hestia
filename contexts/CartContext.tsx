@@ -2,11 +2,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 export interface CartItem {
-  id: string;
+  id: string | number;
   name: string;
   price: number;
   img: string;
-  quantity: number;
+  quantity?: number;
+  description: string;
+  shortDesc: string;
+  scents: string[];
 }
 
 interface CartContextType {
@@ -37,9 +40,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setCart((prev) => {
       const existingItem = prev.find((i) => i.id === item.id);
       if (existingItem) {
-        return prev.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
+        return prev.map((i) => (i.id === item.id ? { ...i, quantity: +1 } : i));
       }
       return [...prev, { ...item, quantity: 1 }];
     });
@@ -52,7 +53,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const increaseQuantity = (id: string) => {
     setCart((prev) =>
       prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === id ? { ...item, quantity: item.quantity || 0 + 1 } : item
       )
     );
   };
@@ -61,7 +62,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setCart((prev) =>
       prev.map((item) =>
         item.id === id
-          ? { ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1 }
+          ? {
+              ...item,
+              quantity: item.quantity || 0 > 1 ? item.quantity || 0 - 1 : 1,
+            }
           : item
       )
     );

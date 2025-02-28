@@ -1,9 +1,11 @@
+import { CartItem } from "@/contexts/CartContext";
+
 export const THEME_MODES = {
   LIGHT: "light",
   DARK: "dark",
 };
 
-export const candles = [
+export const candles: CartItem[] = [
   {
     id: 1,
     price: 19.99,
@@ -66,7 +68,7 @@ export const candles = [
   },
 ];
 
-export const recommendedColorForScent = {
+export const recommendedColorForScent: Record<string, string> = {
   lavender: "black",
   flowers: "white",
 };

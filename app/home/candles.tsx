@@ -1,7 +1,7 @@
 "use client";
 
 import { candles } from "@/consts/general";
-import { useCart } from "@/contexts/CartContext";
+import { CartItem, useCart } from "@/contexts/CartContext";
 import {
   Box,
   Button,
@@ -14,7 +14,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 
-const CandleCard = ({ candle }: { candle: (typeof candles)[number] }) => {
+const CandleCard = ({ candle }: { candle: CartItem }) => {
   const theme = useTheme();
   const { addToCart } = useCart();
   const router = useRouter();
@@ -108,9 +108,9 @@ const CandleList = () => {
         p: 4,
       }}
     >
-      {candles.map((candle) => (
-        <CandleCard key={candle.id} candle={candle} />
-      ))}
+      {candles.map((candle: CartItem) => {
+        return <CandleCard key={candle.id} candle={candle} />;
+      })}
     </Container>
   );
 };
