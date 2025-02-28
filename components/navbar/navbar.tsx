@@ -41,7 +41,14 @@ const Navbar = () => {
           <Box
             sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
           >
-            <Image src="/logo.png" alt="CandleLux" width={40} height={40} />
+            <Image
+              src="/assets/images/Hestia-logo.svg"
+              alt="CandleLux"
+              width={100}
+              height={100}
+              priority
+            />
+
             <Typography
               variant="h5"
               fontWeight="bold"
@@ -51,7 +58,7 @@ const Navbar = () => {
                 fontFamily: "'Playfair Display', serif",
               }}
             >
-              CandleLux
+              Hestia
             </Typography>
           </Box>
         </Link>
