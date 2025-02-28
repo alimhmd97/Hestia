@@ -26,7 +26,7 @@ const CandleCard = ({ candle }: { candle: CartItem }) => {
         boxShadow: theme.shadows[3],
         backgroundColor: theme.palette.background.paper,
         transition: "transform 0.3s ease-in-out",
-        "&:hover": { transform: "scale(1.05)", boxShadow: theme.shadows[6] },
+        "&:hover": { transform: "scale(1.01)", boxShadow: theme.shadows[6] },
       }}
     >
       <CardMedia
@@ -46,7 +46,7 @@ const CandleCard = ({ candle }: { candle: CartItem }) => {
         </Typography>
         <Typography
           variant="body2"
-          color={theme.palette.text.secondary}
+          color={theme.palette.text.primary}
           mb={1}
           sx={{
             display: "-webkit-box",
@@ -98,7 +98,7 @@ const CandleCard = ({ candle }: { candle: CartItem }) => {
               fontSize: ".9rem",
               transition: "all 0.3s ease",
               "&:hover": {
-                backgroundColor: "primary.dark",
+                // backgroundColor: "primary.dark",
                 color: "#fff",
               },
             }}

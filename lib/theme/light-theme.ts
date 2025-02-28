@@ -35,35 +35,35 @@ export const lightTheme = createTheme({
   palette: {
     mode: "light",
     background: {
-      default: "#fdf6ee", // Your color 1 - Light background
-      paper: "#FFF",
+      default: "#f8f5f1", // Soft cream background
+      paper: "#ffffff",
     },
     primary: {
-      main: "#7A2A21", // Your color 2 - Deep red
-      light: "#F18B6D", // Your color 8 - Coral/salmon
-      dark: "#C74F43", // Your color 4 - Brick red
-      contrastText: "#fdf6ee",
+      main: "#8a7968", // Warm taupe
+      light: "#a99b8c", // Light taupe
+      dark: "#6c5f4e", // Deep taupe
+      contrastText: "#ffffff",
     },
     secondary: {
-      main: "#ED8D1E", // Your color 3 - Orange
-      light: "#F1D1A6", // Your color 7 - Light beige
-      dark: "#7A2A21", // Your color 2 - Dark red
+      main: "#d3b99f", // Warm beige/honey
+      light: "#e5d3c1", // Light honey
+      dark: "#b09478", // Deep honey
     },
     text: {
-      primary: "#7A2A21", // Your color 2 - Deep red
-      secondary: "#C74F43", // Your color 4 - Brick red
+      primary: "#4a4039", // Deep warm brown
+      secondary: "#7d7267", // Medium warm brown
     },
     warning: {
-      main: "#ED8D1E", // Your color 3 - Orange
+      main: "#d4a373", // Soft amber
     },
     info: {
-      main: "#B4AEA1", // Your color 5 - Gray
+      main: "#b6b1a3", // Subtle gray
     },
     success: {
-      main: "#F1D1A6", // Your color 7 - Light beige
+      main: "#adc178", // Muted sage green
     },
     error: {
-      main: "#C74F43", // Your color 4 - Brick red
+      main: "#b67162", // Muted terracotta
     },
   },
 });
