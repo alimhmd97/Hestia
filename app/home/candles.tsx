@@ -49,6 +49,7 @@ const CandleCard = ({ candle }: { candle: CartItem }) => {
           color={theme.palette.text.primary}
           mb={1}
           sx={{
+            height: "4rem",
             display: "-webkit-box",
             WebkitBoxOrient: "vertical",
             WebkitLineClamp: 3,

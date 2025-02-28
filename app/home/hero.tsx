@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
 export default function HeroSection({ scrollToCollection }: any) {
@@ -8,12 +8,11 @@ export default function HeroSection({ scrollToCollection }: any) {
     <Box
       sx={{
         height: "100vh",
-        maxHeight: "70rem",
+        maxHeight: "15rem",
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(180deg, #f1e4db, #d29d93)",
         color: "#4c0f2e",
         padding: { xs: 2, md: 4 },
         overflow: "hidden",
@@ -21,19 +20,6 @@ export default function HeroSection({ scrollToCollection }: any) {
       }}
     >
       {/* Background pattern (optional) */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          opacity: 0.05,
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E\")",
-          zIndex: 0,
-        }}
-      />
 
       {/* Content Container */}
       <Container
@@ -45,11 +31,16 @@ export default function HeroSection({ scrollToCollection }: any) {
           gap: { xs: 4, md: 8 },
           zIndex: 1,
           maxWidth: "1200px",
+          margin: "auto",
         }}
       >
         {/* Left Text Section */}
         <Box
           sx={{
+            display: "flex",
+            flexDirection: { xs: "column" },
+            alignItems: "center",
+            justifyContent: "center",
             textAlign: { xs: "center", md: "left" },
             flex: 1,
             order: { xs: 2, md: 1 },
@@ -65,7 +56,7 @@ export default function HeroSection({ scrollToCollection }: any) {
               fontWeight="bold"
               sx={{
                 fontFamily: "'Playfair Display', serif",
-                color: "#e87f70",
+                // color: "#e87f70",
                 textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
                 fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
               }}
@@ -84,8 +75,9 @@ export default function HeroSection({ scrollToCollection }: any) {
               sx={{
                 marginTop: 2,
                 fontSize: { xs: "1rem", md: "1.1rem" },
-                maxWidth: "500px",
+                // maxWidth: "500px",
                 mx: { xs: "auto", md: 0 },
+                maxWidth: "500px",
               }}
             >
               Experience warmth, comfort, and elegance with our handcrafted
@@ -99,7 +91,7 @@ export default function HeroSection({ scrollToCollection }: any) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            <Button
+            {/* <Button
               onClick={scrollToCollection}
               variant="contained"
               size="large"
@@ -122,131 +114,11 @@ export default function HeroSection({ scrollToCollection }: any) {
               }}
             >
               Shop Our Collection
-            </Button>
+            </Button> */}
           </motion.div>
         </Box>
 
         {/* Right SVG Section */}
-        <Box
-          sx={{
-            flex: 1,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            order: { xs: 1, md: 2 },
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Replace with your actual SVG */}
-            <svg
-              width="300"
-              height="300"
-              viewBox="0 0 200 200"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Candle base */}
-              <rect
-                x="70"
-                y="120"
-                width="60"
-                height="60"
-                rx="5"
-                fill="#e8d0c9"
-                stroke="#c76130"
-                strokeWidth="2"
-              />
-
-              {/* Candle body */}
-              <rect
-                x="80"
-                y="50"
-                width="40"
-                height="70"
-                rx="3"
-                fill="#f8f0eb"
-                stroke="#c76130"
-                strokeWidth="1.5"
-              />
-
-              {/* Candle wick */}
-              <line
-                x1="100"
-                y1="30"
-                x2="100"
-                y2="50"
-                stroke="#4c0f2e"
-                strokeWidth="2"
-              />
-
-              {/* Flame */}
-              <motion.path
-                d="M100,30 Q90,20 100,10 Q110,20 100,30"
-                fill="#ffaa5e"
-                animate={{
-                  d: [
-                    "M100,30 Q90,20 100,10 Q110,20 100,30",
-                    "M100,30 Q95,18 100,8 Q105,18 100,30",
-                    "M100,30 Q90,20 100,10 Q110,20 100,30",
-                  ],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 1.5,
-                  ease: "easeInOut",
-                }}
-              />
-
-              {/* Inner flame */}
-              <motion.ellipse
-                cx="100"
-                cy="20"
-                rx="4"
-                ry="6"
-                fill="#fff8e0"
-                animate={{
-                  ry: [6, 7, 6],
-                  opacity: [0.9, 1, 0.9],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 1,
-                  ease: "easeInOut",
-                }}
-              />
-
-              {/* Light glow */}
-              <motion.circle
-                cx="100"
-                cy="20"
-                r="20"
-                fill="rgba(255, 200, 97, 0.2)"
-                animate={{
-                  r: [15, 25, 15],
-                  opacity: [0.2, 0.3, 0.2],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 2,
-                  ease: "easeInOut",
-                }}
-              />
-
-              {/* Decorative elements */}
-              <path
-                d="M70,150 Q100,160 130,150"
-                stroke="#c76130"
-                strokeWidth="1.5"
-                fill="none"
-              />
-              <circle cx="70" cy="135" r="3" fill="#8e322e" />
-              <circle cx="130" cy="135" r="3" fill="#8e322e" />
-            </svg>
-          </motion.div>
-        </Box>
       </Container>
     </Box>
   );

@@ -9,6 +9,7 @@ import { AxiosProvider } from "@/contexts/axios-context";
 import { CartProvider } from "@/contexts/CartContext";
 import { ThemeProvider } from "@/contexts/theme-context";
 import ThemeRegistry from "@/lib/theme/ThemeRegistry";
+import { Box } from "@mui/material";
 import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
@@ -44,6 +45,7 @@ export default async function RootLayout({
                 <ThemeProvider>
                   <CartProvider>
                     <Navbar />
+                    <Box sx={{ height: "6rem" }} />
                     {children}
                   </CartProvider>
                 </ThemeProvider>
