@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hestia Candle Palette</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+    .color-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px;
+      margin: 10px auto;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      color: #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .color-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    .color-code {
+      flex-grow: 1;
+      margin-left: 15px;
+      font-size: 16px;
+    }
+    .copy-button {
+      background-color: #4A4A4A;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .copy-button:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; padding: 20px;">Hestia Candle Palette</h1>
+  
+  <!-- Warm White -->
+  <div class="color-row" style="background-color: #FAF5F0;">
+    <div class="color-box" style="background-color: #FAF5F0;"></div>
+    <span class="color-code">#FAF5F0</span>
+    <button class="copy-button" onclick="copyToClipboard('#FAF5F0')">Copy</button>
+  </div>
+  
+  <!-- Clay Beige -->
+  <div class="color-row" style="background-color: #D9C3B3;">
+    <div class="color-box" style="background-color: #D9C3B3;"></div>
+    <span class="color-code">#D9C3B3</span>
+    <button class="copy-button" onclick="copyToClipboard('#D9C3B3')">Copy</button>
+  </div>
+
+  <!-- Terracotta -->
+  <div class="color-row" style="background-color: #D88C63;">
+    <div class="color-box" style="background-color: #D88C63;"></div>
+    <span class="color-code">#D88C63</span>
+    <button class="copy-button" onclick="copyToClipboard('#D88C63')">Copy</button>
+  </div>
+
+  <!-- Deep Charcoal -->
+  <div class="color-row" style="background-color: #4A4A4A;">
+    <div class="color-box" style="background-color: #4A4A4A;"></div>
+    <span class="color-code">#4A4A4A</span>
+    <button class="copy-button" onclick="copyToClipboard('#4A4A4A')">Copy</button>
+  </div>
+
+  <!-- Golden Amber -->
+  <div class="color-row" style="background-color: #F2C14E;">
+    <div class="color-box" style="background-color: #F2C14E;"></div>
+    <span class="color-code">#F2C14E</span>
+    <button class="copy-button" onclick="copyToClipboard('#F2C14E')">Copy</button>
+  </div>
+
+  <!-- Olive Green -->
+  <div class="color-row" style="background-color: #788D67;">
+    <div class="color-box" style="background-color: #788D67;"></div>
+    <span class="color-code">#788D67</span>
+    <button class="copy-button" onclick="copyToClipboard('#788D67')">Copy</button>
+  </div>
+
+  <!-- Dusty Rose -->
+  <div class="color-row" style="background-color: #C79BAE;">
+    <div class="color-box" style="background-color: #C79BAE;"></div>
+    <span class="color-code">#C79BAE</span>
+    <button class="copy-button" onclick="copyToClipboard('#C79BAE')">Copy</button>
+  </div>
+
+  <script>
+    function copyToClipboard(colorCode) {
+      navigator.clipboard.writeText(colorCode).then(() => {
+        alert(`Copied ${colorCode} to clipboard!`);
+      }, () => {
+        alert('Failed to copy the color code.');
+      });
+    }
+  </script>
+</body>
+</html>
