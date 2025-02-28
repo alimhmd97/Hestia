@@ -55,7 +55,7 @@ const ColorsSelectPlaceholder: React.FC<ColorsSelectPlaceholderProps> = ({
         input={<OutlinedInput />}
         renderValue={(selected) => {
           if (!selected) {
-            return <em>Placeholder</em>;
+            return <em>Choose Color</em>;
           }
           return selected;
         }}
@@ -63,7 +63,7 @@ const ColorsSelectPlaceholder: React.FC<ColorsSelectPlaceholderProps> = ({
         inputProps={{ "aria-label": "Without label" }}
       >
         <MenuItem disabled value="">
-          <em>Placeholder</em>
+          <em>Choose Color</em>
         </MenuItem>
         {colors.map((color) => (
           <MenuItem

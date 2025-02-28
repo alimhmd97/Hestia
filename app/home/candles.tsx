@@ -21,7 +21,7 @@ const CandleCard = ({ candle }: { candle: CartItem }) => {
   return (
     <Card
       sx={{
-        maxWidth: 320,
+        maxWidth: 400,
         borderRadius: 3,
         boxShadow: theme.shadows[3],
         backgroundColor: theme.palette.background.paper,
@@ -44,7 +44,18 @@ const CandleCard = ({ candle }: { candle: CartItem }) => {
         >
           {candle.name}
         </Typography>
-        <Typography variant="body2" color={theme.palette.text.secondary} mb={1}>
+        <Typography
+          variant="body2"
+          color={theme.palette.text.secondary}
+          mb={1}
+          sx={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 3,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
           {candle.description}
         </Typography>
 
@@ -57,7 +68,7 @@ const CandleCard = ({ candle }: { candle: CartItem }) => {
           fontWeight="bold"
           mt={1}
         >
-          ${candle.price}
+          LE {candle.price}
         </Typography>
         <Box
           mt={2}
@@ -81,7 +92,16 @@ const CandleCard = ({ candle }: { candle: CartItem }) => {
             }}
             variant="contained"
             color="secondary"
-            sx={{ borderRadius: 2, padding: ".2rem .5rem", fontSize: ".9" }}
+            sx={{
+              borderRadius: 2,
+              padding: ".2rem .5rem",
+              fontSize: ".9rem",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                backgroundColor: "primary.dark",
+                color: "#fff",
+              },
+            }}
           >
             View Details
           </Button>
@@ -91,16 +111,17 @@ const CandleCard = ({ candle }: { candle: CartItem }) => {
   );
 };
 
-const CandleList = () => {
+const CandleList = ({ collectionRef }: any) => {
   return (
     <Container
+      ref={collectionRef}
       sx={{
         display: "grid",
         gridTemplateColumns: {
           xs: "1fr",
           sm: "1fr 1fr",
           md: "repeat(3, 1fr)",
-          lg: "repeat(4, 1fr)",
+          lg: "repeat(3, 1fr)",
         },
         gap: 3,
         justifyContent: "center",

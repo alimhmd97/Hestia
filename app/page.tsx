@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
+import { useRef } from "react";
 import CandleList from "./home/candles";
 import Footer from "./home/footer";
 import HeroSection from "./home/hero";
@@ -10,6 +11,11 @@ export default function Home() {
   // const [mounted, setMounted] = useState(false);
   // const selectedLang = getClientLanguageCookie() || "en";
   const theme = useTheme();
+  const collectionRef = useRef<HTMLDivElement | null>(null);
+  const scrollToCollection = () => {
+    collectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   // const axios = useAxios();
 
   // ----------------------------------------------------------------------------------------------
@@ -65,8 +71,8 @@ export default function Home() {
           <option value="ar">العربية</option>
         </select>
       </div> */}
-      <HeroSection />
-      <CandleList />
+      <HeroSection scrollToCollection={scrollToCollection} />
+      <CandleList collectionRef={collectionRef} />
       <Footer />
       {/* <Button
         onClick={() => {

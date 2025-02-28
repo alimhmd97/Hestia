@@ -44,7 +44,7 @@ const SingleSelectPlaceholder: React.FC<SingleSelectPlaceholderProps> = ({
         input={<OutlinedInput />}
         renderValue={(selected) => {
           if (!selected) {
-            return <em>Placeholder</em>;
+            return <em>Choose Scent</em>;
           }
           return selected;
         }}
@@ -52,7 +52,7 @@ const SingleSelectPlaceholder: React.FC<SingleSelectPlaceholderProps> = ({
         inputProps={{ "aria-label": "Without label" }}
       >
         <MenuItem disabled value="">
-          <em>Placeholder</em>
+          <em>Choose Scent</em>
         </MenuItem>
         {scents.map((name) => (
           <MenuItem key={name} value={name}>

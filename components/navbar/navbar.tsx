@@ -2,16 +2,8 @@
 
 import { useCart } from "@/contexts/CartContext";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import {
-  AppBar,
-  Badge,
-  Box,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Badge, Box, IconButton, Toolbar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -41,25 +33,14 @@ const Navbar = () => {
           <Box
             sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
           >
-            <Image
+            {/* <Image
               src="/assets/images/Hestia-logo.svg"
               alt="CandleLux"
-              width={100}
-              height={100}
+              width={150}
+              height={150}
               priority
-            />
-
-            <Typography
-              variant="h5"
-              fontWeight="bold"
-              color={theme.palette.text.primary}
-              sx={{
-                marginLeft: "8px",
-                fontFamily: "'Playfair Display', serif",
-              }}
-            >
-              Hestia
-            </Typography>
+            /> */}
+            Logo
           </Box>
         </Link>
 

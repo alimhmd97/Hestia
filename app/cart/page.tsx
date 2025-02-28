@@ -189,7 +189,7 @@ const CartPage = () => {
                         {item.name}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        ${item.price.toFixed(2)}
+                        LE {item.price.toFixed(2)}
                       </Typography>
                     </Box>
 
@@ -269,7 +269,7 @@ const CartPage = () => {
                 }}
               >
                 <Typography variant="h6" fontWeight="bold">
-                  Total: ${total}
+                  Total: {total} LE
                 </Typography>
 
                 <Box

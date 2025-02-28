@@ -2,6 +2,7 @@
 
 import {
   candles,
+  candleScents,
   candlesColors,
   recommendedColorForScent,
 } from "@/consts/general";
@@ -16,7 +17,7 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import ColorsMultipleSelectPlaceholder from "./select-color";
 import MultipleSelectPlaceholder from "./select-scent";
 
@@ -34,7 +35,8 @@ const SingleCandle = ({ params }: any) => {
   const [selectedScent, setSelectedScent] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const { addToCart } = useCart();
-  const candleId = params?.candleId;
+  const resolvedParams: any = use(params);
+  const candleId = resolvedParams?.candleId;
 
   const currentCandle: Candle | undefined = candles.find(
     (candle) => candle.id === Number(candleId)
@@ -46,7 +48,7 @@ const SingleCandle = ({ params }: any) => {
     if (selectedScent) {
       setSelectedColor(recommendedColorForScent[selectedScent]);
     } else {
-      setSelectedColor(" ");
+      // setSelectedColor("");
     }
   }, [selectedScent]);
 
@@ -107,7 +109,7 @@ const SingleCandle = ({ params }: any) => {
               </Typography>
 
               <Typography variant="h6" color="primary" mb={3}>
-                ${currentCandle?.price}
+                LE {currentCandle?.price}
               </Typography>
 
               <Divider sx={{ mb: 3 }} />
@@ -130,7 +132,7 @@ const SingleCandle = ({ params }: any) => {
                 <MultipleSelectPlaceholder
                   selectedScent={selectedScent}
                   setSelectedScent={setSelectedScent}
-                  scents={currentCandle?.scents || []}
+                  scents={candleScents || []}
                 />
 
                 <ColorsMultipleSelectPlaceholder

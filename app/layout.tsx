@@ -20,7 +20,8 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Hestia",
-  description: "Hestia",
+  description:
+    "Hestia – Elevate Your Space with Luxurious Scents -> Discover hand-poured, artisan-crafted candles designed to bring warmth, tranquility, and elegance to your home. Made with premium ingredients for a clean, long-lasting burn.",
 };
 
 export default async function RootLayout({
