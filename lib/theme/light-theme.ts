@@ -1,11 +1,4 @@
 import { createTheme } from "@mui/material";
-// import { Playfair_Display } from "next/font/google"; // Import the new font
-
-// const playfair = Playfair_Display({
-//   weight: ["400", "500", "600", "700"],
-//   style: ["normal", "italic"],
-//   subsets: ["latin"],
-// });
 
 export const lightTheme = createTheme({
   components: {
@@ -18,9 +11,9 @@ export const lightTheme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
-        // root: {
-        //   fontFamily: playfair.style.fontFamily,
-        // },
+        root: {
+          textTransform: "none", // More elegant button styling
+        },
       },
     },
     MuiMenu: {
@@ -29,41 +22,38 @@ export const lightTheme = createTheme({
       },
     },
   },
-  // typography: {
-  //   fontFamily: playfair.style.fontFamily,
-  // },
   palette: {
     mode: "light",
     background: {
-      default: "#f8f5f1", // Soft cream background
-      paper: "#ffffff",
+      default: "#FFF6F4", // Soft Off-White (warm & inviting)
+      paper: "#FFFFFF", // Pure white for contrast
     },
     primary: {
-      main: "#8a7968", // Warm taupe
-      light: "#a99b8c", // Light taupe
-      dark: "#6c5f4e", // Deep taupe
-      contrastText: "#ffffff",
+      main: "#582B39", // Deep Wine Brown (luxurious, warm)
+      light: "#BB8378", // Muted Rosewood (soft and warm)
+      dark: "#7A2A21", // Deep Brick Red (strong contrast)
+      contrastText: "#FFFFFF",
     },
     secondary: {
-      main: "#d3b99f", // Warm beige/honey
-      light: "#e5d3c1", // Light honey
-      dark: "#b09478", // Deep honey
+      main: "#BB8378", // Muted Rosewood (warm & inviting)
+      light: "#E3B6A8", // Softer version of rosewood
+      dark: "#7A2A21", // Deep Brick Red (adds depth)
     },
     text: {
-      primary: "#4a4039", // Deep warm brown
-      secondary: "#7d7267", // Medium warm brown
+      primary: "#582B39", // Deep Wine Brown (elegant & readable)
+      secondary: "#7A2A21", // Brick Red (warm accents)
     },
     warning: {
-      main: "#d4a373", // Soft amber
+      main: "#BB8378", // Soft red-brown (warm warning tone)
     },
     info: {
-      main: "#b6b1a3", // Subtle gray
+      main: "#E3B6A8", // Lighter muted rosewood (gentle notifications)
     },
     success: {
-      main: "#adc178", // Muted sage green
+      main: "#BB8378", // Muted Rosewood (calm, natural success tone)
     },
     error: {
-      main: "#b67162", // Muted terracotta
+      main: "#7A2A21", // Deep Brick Red (strong but earthy)
     },
   },
 });

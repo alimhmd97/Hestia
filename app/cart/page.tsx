@@ -58,8 +58,7 @@ const CartPage = () => {
     setIsDisabled(!(phoneNumber && name) || error);
   }, [phoneNumber, name]);
 
-  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
-    useCart();
+  const { cart, removeFromCart, updateQuantity } = useCart();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -83,14 +82,33 @@ const CartPage = () => {
     if (!cart.length) return "Hello, my cart is empty.";
 
     const orderDetails = cart
-      .map(
-        (item, index) => `${index + 1}. ${item.name} - ${item.quantity} Candles`
-      )
+      .map((item, index) => {
+        let details = `${index + 1}. ${item.name} - ${item.quantity} Candles`;
+
+        // Add scent if it exists
+        if (item.scent) {
+          details += `, Scent: ${item.scent}`;
+        }
+
+        // Add color if it exists
+        if (item.color) {
+          details += `, Color: ${item.color}`;
+        }
+
+        // Add size if it exists
+        if (item.size) {
+          details += `, Size: ${item.size}`;
+        }
+
+        return details;
+      })
       .join("\n");
+
     const userDetails = `Name: ${name}\n
       Phone: ${phoneNumber}`;
-    return `Hello, I want to confirm my order.
 
+    return `Hello, I want to confirm my order.
+  
   🕯️ Order Summary:
   ${orderDetails}
   Please confirm my order.
@@ -191,6 +209,59 @@ const CartPage = () => {
                       <Typography variant="body2" color="text.secondary">
                         LE {item.price.toFixed(2)}
                       </Typography>
+
+                      {/* Optional Attributes (Size, Color, Scent) */}
+                      <Box
+                        sx={{
+                          mt: 1,
+                          display: "flex",
+                          flexWrap: "wrap",
+                          gap: 1,
+                        }}
+                      >
+                        {item.size && (
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              px: 1,
+                              py: 0.5,
+                              borderRadius: 1,
+                              backgroundColor: "grey.200",
+                              display: "inline-block",
+                            }}
+                          >
+                            Size: {item.size}
+                          </Typography>
+                        )}
+                        {item.color && (
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              px: 1,
+                              py: 0.5,
+                              borderRadius: 1,
+                              backgroundColor: "grey.200",
+                              display: "inline-block",
+                            }}
+                          >
+                            Color: {item.color}
+                          </Typography>
+                        )}
+                        {item.scent && (
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              px: 1,
+                              py: 0.5,
+                              borderRadius: 1,
+                              backgroundColor: "grey.200",
+                              display: "inline-block",
+                            }}
+                          >
+                            Scent: {item.scent}
+                          </Typography>
+                        )}
+                      </Box>
                     </Box>
 
                     {/* Quantity Controls & Delete Button */}
@@ -204,11 +275,16 @@ const CartPage = () => {
                       }}
                     >
                       <IconButton
-                        size="small"
-                        color="primary"
-                        onClick={() => decreaseQuantity(item.id)}
+                        onClick={() =>
+                          updateQuantity(
+                            item.id,
+                            item.size,
+                            item.type,
+                            -1,
+                            item.scent
+                          )
+                        }
                         sx={{
-                          // boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
                           backgroundColor: "#e5e3e1",
                           "&:hover": {
                             backgroundColor: "primary.main",
@@ -224,9 +300,16 @@ const CartPage = () => {
                       <IconButton
                         size="small"
                         color="primary"
-                        onClick={() => increaseQuantity(item.id)}
+                        onClick={() =>
+                          updateQuantity(
+                            item.id,
+                            item.size,
+                            item.type,
+                            1,
+                            item.scent
+                          )
+                        }
                         sx={{
-                          // boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
                           backgroundColor: "#e5e3e1",
                           "&:hover": {
                             backgroundColor: "primary.main",
@@ -239,10 +322,16 @@ const CartPage = () => {
 
                       <IconButton
                         color="error"
-                        onClick={() => removeFromCart(item.id)}
+                        onClick={() =>
+                          removeFromCart(
+                            item.id,
+                            item.size,
+                            item.type,
+                            item.scent
+                          )
+                        }
                         sx={{
                           backgroundColor: "#e5e3e1",
-                          // boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
                           "&:hover": {
                             backgroundColor: "error.main",
                             color: "#fff",

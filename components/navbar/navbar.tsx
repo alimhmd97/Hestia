@@ -15,7 +15,7 @@ const Navbar = () => {
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: theme.palette.primary.light,
+        backgroundColor: theme.palette.background.default,
         boxShadow: theme.shadows[3],
         backdropFilter: "blur(8px)",
         padding: "10px 20px",

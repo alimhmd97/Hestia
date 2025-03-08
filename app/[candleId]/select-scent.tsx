@@ -36,7 +36,7 @@ const SingleSelectPlaceholder: React.FC<SingleSelectPlaceholderProps> = ({
   };
 
   return (
-    <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
+    <FormControl sx={{ width: 300, mt: 1 }}>
       <Select
         displayEmpty
         value={selectedScent}
@@ -54,8 +54,8 @@ const SingleSelectPlaceholder: React.FC<SingleSelectPlaceholderProps> = ({
         <MenuItem disabled value="">
           <em>Choose Scent</em>
         </MenuItem>
-        {scents.map((name) => (
-          <MenuItem key={name} value={name}>
+        {scents.map((name, i) => (
+          <MenuItem key={i} value={name}>
             {name}
           </MenuItem>
         ))}

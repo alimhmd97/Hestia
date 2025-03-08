@@ -47,7 +47,7 @@ const ColorsSelectPlaceholder: React.FC<ColorsSelectPlaceholderProps> = ({
   };
 
   return (
-    <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
+    <FormControl sx={{ width: 300, mt: 1 }}>
       <Select
         displayEmpty
         value={selectedColor}
@@ -65,9 +65,9 @@ const ColorsSelectPlaceholder: React.FC<ColorsSelectPlaceholderProps> = ({
         <MenuItem disabled value="">
           <em>Choose Color</em>
         </MenuItem>
-        {colors.map((color) => (
+        {colors.map((color, i) => (
           <MenuItem
-            key={color}
+            key={i}
             value={color}
             style={getStyles(color, selectedColor, theme)}
           >

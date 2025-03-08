@@ -77,7 +77,7 @@ export default function HeroSection({ scrollToCollection }: any) {
                 fontSize: { xs: "1rem", md: "1.1rem" },
                 // maxWidth: "500px",
                 mx: { xs: "auto", md: 0 },
-                maxWidth: "500px",
+                // maxWidth: "500px",
               }}
             >
               Experience warmth, comfort, and elegance with our handcrafted

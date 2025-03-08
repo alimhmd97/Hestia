@@ -28,7 +28,9 @@ const Footer = () => {
         borderTop: `1px solid ${theme.palette.divider}`,
       }}
     >
-      <Container maxWidth="lg">
+      <Container
+      //  maxWidth="lg"
+      >
         <Stack direction="column" spacing={2} alignItems="center">
           <Typography variant="body1">Connect with us:</Typography>
           <Stack direction="row" spacing={2}>
